@@ -1,0 +1,15 @@
+{% extends "machina/forum/index.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      {% blocktrans %}
+        This is a demo site showcasing the use of <a href="https://github.com/ellmetha/django-machina">django-machina</a>. <b>The site and its database are resetted every day.</b> Feel free to register yourself and try it out!
+      {% endblocktrans %}
+    </div>
+  </div>
+</div>
+{{ block.super }}
+{% endblock content %}

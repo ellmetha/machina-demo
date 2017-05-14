@@ -1,3 +1,5 @@
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -9,7 +11,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
-build/
+/build/
 develop-eggs/
 dist/
 downloads/
@@ -87,3 +89,28 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Databases
+*.db
+
+# Project's environment settings
+.env.json
+
+# Media/static files (only used in development)
+/media/
+/static/
+
+# Whoosh index (only used in development)
+.whoosh_index
+
+# Assets and Node stuff
+bower_components/
+node_modules/
+npm-debug.log
+__snapshots__/
+/vanilla/static/build_dev/*
+!vanilla/static/build_dev/.gitkeep
+
+# Provisioning / deployments
+*.retry
+.vaultpass
