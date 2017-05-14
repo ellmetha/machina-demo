@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block content %}
+{% if not debug %}
 <div class="row">
   <div class="col-md-12">
     <div class="alert alert-info">
@@ -11,5 +12,6 @@
     </div>
   </div>
 </div>
+{% endif %}
 {{ block.super }}
 {% endblock content %}
