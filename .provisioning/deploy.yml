@@ -27,3 +27,6 @@
 
     - role: django
       tags: ['django', ]
+
+    - role: machina-vanilla
+      tags: ['django', 'demo', ]

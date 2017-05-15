@@ -1,0 +1,17 @@
+---
+
+- name: Generate scripts
+  template:
+    src: "{{ item }}"
+    dest: "{{ django_path }}"
+    mode: u=rwx,g=,o=
+    owner: "{{ django_user }}"
+  with_items:
+    - "update_index.sh"
+    - "reset.sh"
+
+- name: Reset the app if applicable
+  shell: "{{ django_path }}/reset.sh"
+  when: trigger_demo_reset
+  become: yes
+  become_user: "{{ django_user }}"

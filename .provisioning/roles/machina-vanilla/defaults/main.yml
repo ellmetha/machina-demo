@@ -1,0 +1,4 @@
+---
+
+# Use this variable to manually trigger app reset at provision time.
+trigger_demo_reset: no
