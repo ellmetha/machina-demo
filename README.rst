@@ -22,7 +22,7 @@ You can install the project locally using the following commands:
   $ pipenv install --dev --three
   $ cp .env.json.example .env.json     # Initializes the environment settings
   $ pipenv run python manage.py migrate
-  $ pipenv createsuperuser
+  $ pipenv run python manage.py createsuperuser
   $ pipenv run python manage.py loaddata vanilla_project/fixtures*
 
 *Alright!* Now all you have to do is to launch the development server using:
