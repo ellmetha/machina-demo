@@ -14,7 +14,7 @@ django_env_variables:
   DJANGO_INSTALL_PATH: "{{ django_path }}"
 django_jsonsettings_properties:
   SECRET_KEY: "{{ secret__django_secret_key }}"
-  ADMIN_URL: admin/
+  ADMIN_URL: "{{ secret__django_admin_url }}"
   DB_ENGINE: "django.db.backends.postgresql_psycopg2"
   DB_NAME: "{{ django_db_name }}"
   DB_USER: "{{ django_db_user }}"
