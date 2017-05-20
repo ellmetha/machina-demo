@@ -19,7 +19,7 @@ django_jsonsettings_properties:
   DB_NAME: "{{ django_db_name }}"
   DB_USER: "{{ django_db_user }}"
   DB_PASSWORD: "{{ django_db_password }}"
-  DB_HOST: ""
+  DB_HOST: "localhost"
   DB_PORT: ""
   DB_OPTIONS: {}
   ALLOWED_HOSTS: "['{{ django_domain_name }}', ] + {{ django_extra_domain_names|default([]) }}"
