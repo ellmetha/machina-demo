@@ -13,13 +13,13 @@
     },
     "default": {
         "django": {
-            "version": "==1.11.1"
+            "version": "==1.11.2"
         },
         "django-haystack": {
             "version": "==2.6.1"
         },
         "django-machina": {
-            "version": "==0.5.5"
+            "version": "==0.5.6"
         },
         "django-mptt": {
             "version": "==0.8.7"
@@ -51,7 +51,7 @@
     },
     "develop": {
         "django": {
-            "version": "==1.11.1"
+            "version": "==1.11.2"
         },
         "django-debug-toolbar": {
             "version": "==1.8"
@@ -60,7 +60,7 @@
             "version": "==3.3.0"
         },
         "isort": {
-            "version": "==4.2.5"
+            "version": "==4.2.15"
         },
         "mccabe": {
             "version": "==0.6.1"
