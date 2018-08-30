@@ -3,6 +3,7 @@ from django.conf.urls import url
 from . import views
 
 
+app_name = 'account'
 urlpatterns = [
     url(r'^parameters/edit/', views.UserAccountParametersUpdateView.as_view(), name='parameters'),
     url(r'^password/edit/', views.UserPasswordUpdateView.as_view(), name='password'),
