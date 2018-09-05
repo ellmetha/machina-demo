@@ -10,7 +10,7 @@ isort = "*"
 [packages]
 django-machina = "*"
 django-haystack = "*"
-psycopg2 = "*"
 django-recaptcha = "*"
 Django = "*"
 Whoosh = "*"
+"psycopg2-binary" = "*"
