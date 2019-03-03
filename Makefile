@@ -15,11 +15,13 @@ init:
 # locales, etc.
 # --------------------------------------------------------------------------------------------------
 
-devserver:
-	pipenv run python manage.py runserver 0.0.0.0:8000 --settings=$(DJANGO_SETTINGS_MODULE)
-
-shell:
+c: console
+console:
 	pipenv run python manage.py shell --settings=$(DJANGO_SETTINGS_MODULE)
+
+s: server
+server:
+	pipenv run python manage.py runserver 0.0.0.0:8000 --settings=$(DJANGO_SETTINGS_MODULE)
 
 migrations:
 	pipenv run python manage.py makemigrations --settings=$(DJANGO_SETTINGS_MODULE) ${ARG}
