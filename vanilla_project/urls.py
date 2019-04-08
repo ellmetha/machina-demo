@@ -11,7 +11,7 @@ from django.conf.urls import include
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.i18n import JavaScriptCatalog
-from machina.app import board
+from machina import urls as machina_urls
 
 
 js_info_dict = {
@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^' + settings.ADMIN_URL, admin.site.urls),
 
     # Apps
-    url(r'^', include(board.urls)),
+    url(r'^', include(machina_urls)),
     url(r'^', include('vanilla.public.urls')),
 ]
 

@@ -13,9 +13,6 @@
 
 import socket
 
-from captcha.constants import TEST_PRIVATE_KEY
-from captcha.constants import TEST_PUBLIC_KEY
-
 from .base import *  # noqa
 
 
@@ -79,13 +76,6 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-
-# RECAPTCHA CONFIGURATION
-# ------------------------------------------------------------------------------
-
-RECAPTCHA_PUBLIC_KEY = TEST_PUBLIC_KEY
-RECAPTCHA_PRIVATE_KEY = TEST_PRIVATE_KEY
 
 
 # WEBPACK-DEV-SERVER CONFIGURATION
