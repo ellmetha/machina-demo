@@ -76,12 +76,12 @@ const webpackConfig = {
  */
 
 /* Task to build our JS and CSS applications. */
-gulp.task('build-webpack-assets', () =>
+gulp.task('build-webpack-assets', gulp.series(() => (
   gulp.src([`${jsDir}/App.js`, `${lessDir}/App.less`])
     .pipe(named())
     .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(buildDir)),
-);
+    .pipe(gulp.dest(buildDir))
+)));
 
 
 /*
@@ -89,7 +89,7 @@ gulp.task('build-webpack-assets', () =>
  * ~~~~~~~~~~~~
  */
 
-gulp.task('build', ['build-webpack-assets']);
+gulp.task('build', gulp.series('build-webpack-assets'));
 
 
 /*
