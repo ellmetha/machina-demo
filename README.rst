@@ -9,7 +9,7 @@ This project showcases a standard installation of django-machina_ without custom
 Requirements
 ============
 
-Python_ 3.4+, Pipenv_ 3.5+, Django_ 1.11.
+Python_ 3.7+, Pipenv_ 3.5+, Django_ 2.2+.
 
 Installation
 ============
@@ -19,9 +19,7 @@ You can install the project locally using the following commands:
 .. code-block:: shell
 
   $ git clone https://github.com/ellmetha/machina-vanilla && cd machina-vanilla
-  $ pipenv install --dev --three
-  $ cp .env.json.example .env.json     # Initializes the environment settings
-  $ pipenv run python manage.py migrate
+  $ make init
   $ pipenv run python manage.py createsuperuser
   $ pipenv run python manage.py loaddata vanilla_project/fixtures*
 
@@ -29,7 +27,7 @@ You can install the project locally using the following commands:
 
 .. code-block:: shell
 
-  $ make devserver
+  $ make server
 
 License
 =======
