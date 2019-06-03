@@ -57,7 +57,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # ------------------------------------------------------------------------------
 
 TEMPLATES[0]['OPTIONS']['context_processors'] += (  # noqa: F405
-    'vanilla_project.context_processors.webpack', )
+    'project.context_processors.webpack', )
 TEMPLATES[0]['OPTIONS']['loaders'] = (  # noqa: F405
     # Disables cached loader if any
     'django.template.loaders.filesystem.Loader',
@@ -70,9 +70,9 @@ TEMPLATES[0]['OPTIONS']['loaders'] = (  # noqa: F405
 
 STATICFILES_DIRS = (
     MACHINA_MAIN_STATIC_DIR,  # noqa: F405
-    str(PROJECT_PATH / 'vanilla' / 'static' / 'build_dev'),  # noqa: F405
-    str(PROJECT_PATH / 'vanilla' / 'static' / 'build'),  # noqa: F405
-    str(PROJECT_PATH / 'vanilla' / 'static'),  # noqa: F405
+    str(PROJECT_PATH / 'main' / 'static' / 'build_dev'),  # noqa: F405
+    str(PROJECT_PATH / 'main' / 'static' / 'build'),  # noqa: F405
+    str(PROJECT_PATH / 'main' / 'static'),  # noqa: F405
 )
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'

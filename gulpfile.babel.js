@@ -10,12 +10,9 @@ import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import webpackStream from 'webpack-stream';
 
-/* Env variables */
-env('.env');
-
 /* Global variables */
 const rootDir = './';
-const staticDir = `${rootDir}vanilla/static/`;
+const staticDir = `${rootDir}main/static/`;
 const PROD_ENV = gutil.env.production;
 const WEBPACK_DEV_SERVER_PORT = (
   process.env.WEBPACK_DEV_SERVER_PORT ? process.env.WEBPACK_DEV_SERVER_PORT : 8080);

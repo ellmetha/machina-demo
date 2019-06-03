@@ -1,24 +1,17 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate
-from django.contrib.auth import login
-from django.contrib.auth import logout
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
-from django.urls import reverse
-from django.views.generic import CreateView
-from django.views.generic import FormView
-from django.views.generic import UpdateView
+from django.views.generic import CreateView, FormView, UpdateView
 
-from vanilla.common.viewmixins import MenuItemMixin
+from main.common.viewmixins import MenuItemMixin
 
-from .forms import UserCreationForm
-from .forms import UserDeletionForm
-from .forms import UserParametersForm
+from .forms import UserCreationForm, UserDeletionForm, UserParametersForm
 
 
 class UserCreateView(CreateView):

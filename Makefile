@@ -1,5 +1,5 @@
-PROJECT_PACKAGE := vanilla
-PROJECT_CONFIGURATION_PACKAGE := $(PROJECT_PACKAGE)_project
+PROJECT_PACKAGE := main
+PROJECT_CONFIGURATION_PACKAGE := project
 DJANGO_SETTINGS_MODULE := $(PROJECT_CONFIGURATION_PACKAGE).settings.dev
 
 .PHONY: devserver shell migrate superuser qa lint isort

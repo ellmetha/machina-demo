@@ -14,8 +14,7 @@ import pathlib
 
 from django.core.exceptions import ImproperlyConfigured
 from django.urls import reverse_lazy
-from machina import MACHINA_MAIN_STATIC_DIR
-from machina import MACHINA_MAIN_TEMPLATE_DIR
+from machina import MACHINA_MAIN_STATIC_DIR, MACHINA_MAIN_TEMPLATE_DIR
 
 
 # BASE DIRECTORIES
@@ -162,7 +161,7 @@ LANGUAGES = (
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 LOCALE_PATHS = (
-    str(PROJECT_PATH / 'vanilla_project' / 'locale'),
+    str(PROJECT_PATH / 'project' / 'locale'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-ADMINS
@@ -216,7 +215,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': (
-            str(PROJECT_PATH / 'vanilla' / 'templates'),
+            str(PROJECT_PATH / 'main' / 'templates'),
             MACHINA_MAIN_TEMPLATE_DIR,
         ),
         'OPTIONS': {
@@ -253,8 +252,8 @@ STATIC_URL = '/static/'
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     MACHINA_MAIN_STATIC_DIR,
-    str(PROJECT_PATH / 'vanilla' / 'static' / 'build'),
-    str(PROJECT_PATH / 'vanilla' / 'static'),
+    str(PROJECT_PATH / 'main' / 'static' / 'build'),
+    str(PROJECT_PATH / 'main' / 'static'),
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -281,7 +280,7 @@ MEDIA_URL = '/media/'
 # ------------------------------------------------------------------------------
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = 'vanilla_project.urls'
+ROOT_URLCONF = 'project.urls'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = 'wsgi.application'

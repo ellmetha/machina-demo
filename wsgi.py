@@ -14,6 +14,6 @@ application of another framework.
 import os
 
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'vanilla_project.settings.base')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.settings.base')
 from django.core.wsgi import get_wsgi_application  # noqa: E402
 application = get_wsgi_application()

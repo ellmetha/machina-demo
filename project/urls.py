@@ -7,8 +7,7 @@
 """
 
 from django.conf import settings
-from django.conf.urls import include
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.i18n import JavaScriptCatalog
 from machina import urls as machina_urls
@@ -26,7 +25,7 @@ urlpatterns = [
 
     # Apps
     url(r'^', include(machina_urls)),
-    url(r'^', include('vanilla.public.urls')),
+    url(r'^', include('main.public.urls')),
 ]
 
 if settings.DEBUG:
