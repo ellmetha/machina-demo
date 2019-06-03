@@ -6,7 +6,43 @@ DJANGO_SETTINGS_MODULE := $(PROJECT_CONFIGURATION_PACKAGE).settings.dev
 
 
 init:
-	pipenv install --dev --three
+	@echo ---------------- Initialization --- Environment settings
+	@echo
+
+	rsync --ignore-existing .env.json.example .env.json
+	sed -i .bak "s/.*__whoami__.*/  \"DB_USER\": \"$USER\",/" .env.json
+	rm -f .env.json.bak
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Python dependencies
+	@echo
+
+	pipenv install --dev
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Node.js dependencies
+	@echo
+
+	npm install
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Initial assets build
+	@echo
+
+	npm run gulp -- build
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Database
+	@echo
+
+	pipenv run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
+
+	@echo
+	@echo ---------------- Done.
 
 
 # DEVELOPMENT
