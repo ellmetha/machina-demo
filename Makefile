@@ -45,7 +45,7 @@ init:
 	@echo ---------------- Initialization --- Admin user
 	@echo
 
-	pipenv run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin
+	pipenv run python manage.py shell -c "from django.contrib.auth.models import User ; u = User.objects.filter(username='admin').first() ; print(u.username if u else '', end='')"|grep -w 'admin' || pipenv run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin 2>/dev/null
 
 	@echo
 	@echo
