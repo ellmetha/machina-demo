@@ -20,8 +20,6 @@ You can install the project locally using the following commands:
 
   $ git clone https://github.com/ellmetha/machina-vanilla && cd machina-vanilla
   $ make init
-  $ pipenv run python manage.py createsuperuser
-  $ pipenv run python manage.py loaddata vanilla_project/fixtures*
 
 *Alright!* Now all you have to do is to launch the development server using:
 

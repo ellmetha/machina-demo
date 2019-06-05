@@ -41,6 +41,21 @@ init:
 
 	pipenv run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
 
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Admin user
+	@echo
+
+	pipenv run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin
+
+	@echo
+	@echo
+	@echo ---------------- Initialization --- Fixtures
+	@echo
+
+	pipenv run python manage.py loaddata project/fixtures/*
+
 	@echo
 	@echo ---------------- Done.
 
