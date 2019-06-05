@@ -1,5 +1,5 @@
-machina-vanilla
-###############
+machina-demo
+############
 
 This project showcases a standard installation of django-machina_ without customization.
 
