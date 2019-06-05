@@ -9,8 +9,6 @@ init:
 	@echo
 
 	rsync --ignore-existing .env.json.example .env.json
-	sed -i .bak "s/.*__whoami__.*/  \"DB_USER\": \"$USER\",/" .env.json
-	rm -f .env.json.bak
 
 	@echo
 	@echo
