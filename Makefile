@@ -5,55 +5,35 @@ DJANGO_SETTINGS_MODULE := $(PROJECT_CONFIGURATION_PACKAGE).settings.dev
 
 ## Setup and initialize the project for development.
 init:
-	@echo ---------------- Initialization --- Environment settings
-	@echo
+	@printf "${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Environment settings${RESET}\n\n"
 
 	rsync --ignore-existing .env.json.example .env.json
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Python dependencies
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Python dependencies${RESET}\n\n"
 
 	pipenv install --dev
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Node.js dependencies
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Node.js dependencies${RESET}\n\n"
 
 	npm install
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Initial assets build
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Initial assets build${RESET}\n\n"
 
 	npm run gulp -- build
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Database
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Database${RESET}\n\n"
 
 	pipenv run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Admin user
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Admin user${RESET}\n\n"
 
 	pipenv run python manage.py shell -c "from django.contrib.auth.models import User ; u = User.objects.filter(username='admin').first() ; print(u.username if u else '', end='')"|grep -w 'admin' || pipenv run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin 2>/dev/null
 
-	@echo
-	@echo
-	@echo ---------------- Initialization --- Fixtures
-	@echo
+	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Fixtures${RESET}\n\n"
 
 	pipenv run python manage.py loaddata project/fixtures/*
 
-	@echo
-	@echo ---------------- Done.
+	@printf "\n\n${YELLOW}---------------- Done.${RESET}\n\n"
 
 
 # DEVELOPMENT
