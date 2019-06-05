@@ -18,7 +18,7 @@ You can install the project locally using the following commands:
 
 .. code-block:: shell
 
-  $ git clone https://github.com/ellmetha/machina-vanilla && cd machina-vanilla
+  $ git clone https://github.com/ellmetha/machina-demo && cd machina-demo
   $ make init
 
 *Alright!* Now all you have to do is to launch the development server using:
