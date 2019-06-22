@@ -11,13 +11,13 @@
   {{ block.super }}
   <ul class="nav navbar-nav navbar-right">
     {% if request.user.is_authenticated %}
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <li class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="glyphicon glyphicon-user"></span>
         <strong>{{ request.user.username }}</strong>
         <span class="glyphicon glyphicon-chevron-down"></span>
       </a>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right">
         <li>
           <div class="navbar-login">
             <div class="row">
@@ -35,7 +35,7 @@
             </div>
           </div>
         </li>
-        <li class="divider"></li>
+        <li class="dropdown-divider"></li>
         <li>
           <div class="navbar-login navbar-login-session">
             <div class="row">
@@ -50,8 +50,8 @@
       </ul>
     </li>
     {% else %}
-    <li><a href="{% url 'account:register' %}">{% trans "Sign up" %}</a></li>
-    <li><a href="{% url 'login' %}">{% trans "Sign in" %}</a></li>
+    <li class="nav-item"><a href="{% url 'account:register' %}" class="nav-link">{% trans "Sign up" %}</a></li>
+    <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">{% trans "Sign in" %}</a></li>
     {% endif %}
   </ul>
 {% endblock header_collapse %}

@@ -5,11 +5,11 @@
 
 {% block inner_content %}
 <br />
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">{% trans "Remove your account" %}</h3>
+<div class="card">
+  <div class="card-header">
+    <h3 class="m-0 h5 card-title">{% trans "Remove your account" %}</h3>
   </div>
-  <div class="panel-body">
+  <div class="card-body">
     <form method="post" action="." class="form" enctype="multipart/form-data" novalidate>{% csrf_token %}
       <div class="row">
         <div class="col-md-6">

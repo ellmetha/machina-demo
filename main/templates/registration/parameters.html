@@ -6,12 +6,12 @@
 {% block inner_content %}
 <br />
 <div class="row">
-  <div class="col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">{% trans "Edit account parameters" %}</h3>
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="m-0 h5 card-title">{% trans "Edit account parameters" %}</h3>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
         <form method="post" action="." class="form" enctype="multipart/form-data" novalidate>{% csrf_token %}
           <div class="row">
             <div class="col-md-6">
@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-actions">
-                <div class="pull-right">
+                <div class="float-right">
                   <a href="{% url 'account:unregister' %}" class="btn btn-danger">{% trans "Remove your account" %}</a>
                 </div>
                 <input type="submit" class="btn btn-large btn-primary" value="{% trans "Submit" %}" />
