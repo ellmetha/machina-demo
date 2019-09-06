@@ -25,7 +25,7 @@ urlpatterns = [
 
     # Apps
     url(r'^', include(machina_urls)),
-    url(r'^', include('main.public.urls')),
+    url(r'^', include('main.presentation.urls')),
 ]
 
 if settings.DEBUG:
