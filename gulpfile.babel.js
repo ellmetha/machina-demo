@@ -1,17 +1,16 @@
-import 'babel-polyfill';
+import '@babel/polyfill';
 
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import gulp from 'gulp';
 import env from 'gulp-env';
 import gutil from 'gulp-util';
 import path from 'path';
-import named from 'vinyl-named';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import webpackStream from 'webpack-stream';
+import ManifestPlugin from 'webpack-manifest-plugin';
 
 /* Global variables */
-const rootDir = './';
+const rootDir = `${__dirname}/`;
 const staticDir = `${rootDir}main/static/`;
 const PROD_ENV = gutil.env.production;
 const WEBPACK_DEV_SERVER_PORT = (
@@ -30,8 +29,14 @@ const jsDir = `${staticDir}js`;
  */
 
 const webpackConfig = {
+  mode: PROD_ENV ? 'production' : 'development',
+  entry: {
+    App: [`${jsDir}/App.js`, `${lessDir}/App.less`],
+  },
   output: {
     filename: 'js/[name].js',
+    path: buildDir,
+    publicPath: PROD_ENV ? '/static/build/' : '/static/build_dev/',
   },
   resolve: {
     modules: ['bower_components', 'node_modules', ],
@@ -48,19 +53,18 @@ const webpackConfig = {
       { test: /\.(eot|ttf|wav|mp3|otf)([\?]?.*)$/, use: 'file-loader' },
     ],
   },
-  externals: {
-    // require("jquery") is external and available
-    // on the global var jQuery
-    'jquery': 'jQuery'
-},
+  optimization: {
+    minimize: PROD_ENV,
+  },
   plugins: [
-    new ExtractTextPlugin({ filename: 'css/[name].css', disable: false }),
+    new ExtractTextPlugin({ filename: '[name].[chunkhash].css', disable: false }),
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      publicPath: PROD_ENV ? 'build/' : 'build_dev/',
+    }),
     ...(PROD_ENV ? [
       new webpack.LoaderOptionsPlugin({
         minimize: true,
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: { warnings: false },
       }),
     ] : []),
   ],
@@ -74,10 +78,22 @@ const webpackConfig = {
 
 /* Task to build our JS and CSS applications. */
 gulp.task('build-webpack-assets', gulp.series(() => (
-  gulp.src([`${jsDir}/App.js`, `${lessDir}/App.less`])
-    .pipe(named())
-    .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(gulp.dest(buildDir))
+  new Promise((resolve, reject) => {
+    // eslint-disable-next-line consistent-return
+    webpack(webpackConfig, (err, stats) => {
+      if (err) {
+        return reject(err);
+      }
+      if (stats.hasErrors()) {
+        return reject(new Error(stats.compilation.errors.join('\n')));
+      }
+      console.log(stats.toString({
+        chunks: false,
+        colors: true,
+      }));
+      resolve();
+    });
+  })
 )));
 
 
