@@ -36,6 +36,7 @@ MIDDLEWARE += (  # noqa: F405
 # ------------------------------------------------------------------------------
 
 DEBUG = True
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
 
 
 # GENERAL CONFIGURATION
