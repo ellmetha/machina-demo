@@ -9,7 +9,7 @@ This project showcases a standard installation of django-machina_ without custom
 Requirements
 ============
 
-Python_ 3.7+, Pipenv_ 3.5+, Django_ 2.2+.
+Python_ 3.8+, Poetry_ 1.0+, Django_ 3.0+.
 
 Installation
 ============
@@ -34,5 +34,5 @@ MIT. See ``LICENSE`` for more details.
 
 .. _Django: https://www.djangoproject.com
 .. _django-machina: https://github.com/ellmetha/django-machina
-.. _Pipenv: https://github.com/kennethreitz/pipenv
+.. _Poetry: https://python-poetry.org/
 .. _Python: https://www.python.org

@@ -11,7 +11,8 @@ init:
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Python dependencies${RESET}\n\n"
 
-	pipenv install --dev
+	poetry env use 3.8
+	poetry install
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Node.js dependencies${RESET}\n\n"
 
@@ -23,15 +24,15 @@ init:
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Database${RESET}\n\n"
 
-	pipenv run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
+	poetry run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Admin user${RESET}\n\n"
 
-	pipenv run python manage.py shell -c "from django.contrib.auth.models import User ; u = User.objects.filter(username='admin').first() ; print(u.username if u else '', end='')"|grep -w 'admin' || pipenv run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin 2>/dev/null
+	poetry run python manage.py shell -c "from django.contrib.auth.models import User ; u = User.objects.filter(username='admin').first() ; print(u.username if u else '', end='')"|grep -w 'admin' || poetry run python manage.py createsuperuser --noinput --email=admin@example.com --username=admin 2>/dev/null
 
 	@printf "\n\n${YELLOW}---------------- Initialization ---${RESET} ${GREEN}Fixtures${RESET}\n\n"
 
-	pipenv run python manage.py loaddata project/fixtures/*
+	poetry run python manage.py loaddata project/fixtures/*
 
 	@printf "\n\n${YELLOW}---------------- Done.${RESET}\n\n"
 
@@ -48,28 +49,28 @@ c: console
 ## Launch a development console.
 console:
 	@echo does nothing
-	pipenv run python manage.py shell --settings=$(DJANGO_SETTINGS_MODULE)
+	poetry run python manage.py shell --settings=$(DJANGO_SETTINGS_MODULE)
 
 .PHONY: s server
 ## Alias of "server".
 s: server
 ## Launch a development server.
 server:
-	pipenv run python manage.py runserver 0.0.0.0:8000 --settings=$(DJANGO_SETTINGS_MODULE)
+	poetry run python manage.py runserver 0.0.0.0:8000 --settings=$(DJANGO_SETTINGS_MODULE)
 
 ## Generate new database migrations.
 migrations:
-	pipenv run python manage.py makemigrations --settings=$(DJANGO_SETTINGS_MODULE) ${ARG}
+	poetry run python manage.py makemigrations --settings=$(DJANGO_SETTINGS_MODULE) ${ARG}
 
 .PHONY: migrate
 ## Run the database migrations.
 migrate:
-	pipenv run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
+	poetry run python manage.py migrate --settings=$(DJANGO_SETTINGS_MODULE)
 
 .PHONY: superuser
 ## Create a superuser.
 superuser:
-	pipenv run python manage.py createsuperuser --settings=$(DJANGO_SETTINGS_MODULE)
+	poetry run python manage.py createsuperuser --settings=$(DJANGO_SETTINGS_MODULE)
 
 
 # QUALITY ASSURANCE
@@ -84,12 +85,12 @@ qa: lint isort
 .PHONY: lint
 ## Trigger code quality checks (flake8).
 lint:
-	pipenv run flake8
+	poetry run flake8
 
 .PHONY: isort
 ## Check Python imports sorting.
 isort:
-	pipenv run isort --check-only --recursive --diff $(PROJECT_PACKAGE) $(PROJECT_CONFIGURATION_PACKAGE)
+	poetry run isort --check-only --recursive --diff $(PROJECT_PACKAGE) $(PROJECT_CONFIGURATION_PACKAGE)
 
 
 # MAKEFILE HELPERS
