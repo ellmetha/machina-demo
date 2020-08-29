@@ -113,7 +113,7 @@ description = "A Django forum engine for building powerful community driven webs
 name = "django-machina"
 optional = false
 python-versions = ">=3.5,<4.0"
-version = "1.1.1"
+version = "1.1.2"
 
 [package.dependencies]
 django = ">=2.2"
@@ -193,15 +193,15 @@ description = "IPython: Productive Interactive Computing"
 name = "ipython"
 optional = false
 python-versions = ">=3.7"
-version = "7.17.0"
+version = "7.18.0"
 
 [package.dependencies]
 appnope = "*"
 backcall = "*"
 colorama = "*"
 decorator = "*"
-jedi = ">=0.10"
-pexpect = "*"
+jedi = ">=0.16"
+pexpect = ">4.3"
 pickleshare = "*"
 prompt-toolkit = ">=2.0.0,<3.0.0 || >3.0.0,<3.0.1 || >3.0.1,<3.1.0"
 pygments = "*"
@@ -376,7 +376,7 @@ description = "Python client for Sentry (https://sentry.io)"
 name = "sentry-sdk"
 optional = false
 python-versions = "*"
-version = "0.17.0"
+version = "0.17.1"
 
 [package.dependencies]
 certifi = "*"
@@ -542,8 +542,8 @@ django-js-asset = [
     {file = "django_js_asset-1.2.2-py2.py3-none-any.whl", hash = "sha256:8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd"},
 ]
 django-machina = [
-    {file = "django-machina-1.1.1.tar.gz", hash = "sha256:85c25d49b2a08ba1c81cd1bf94a76104b018157749b159b98362c1c65e211f16"},
-    {file = "django_machina-1.1.1-py3-none-any.whl", hash = "sha256:005451fd7f9c9979d7674444d8b49341ef4b3c0a125f0c9a7eff71285c684946"},
+    {file = "django-machina-1.1.2.tar.gz", hash = "sha256:652a31848f0e1945b86a4ba3b4c8cb2b4189a4336ed27a23abb9b9a4caf339b1"},
+    {file = "django_machina-1.1.2-py3-none-any.whl", hash = "sha256:6d1d8a25469dec7d7e9187e7bce437e77ca6d0939c73530cd01d2b6b817d996b"},
 ]
 django-mptt = [
     {file = "django-mptt-0.11.0.tar.gz", hash = "sha256:dfdb3af75ad27cdd4458b0544ec8574174f2b90f99bc2cafab6a15b4bc1895a8"},
@@ -579,8 +579,8 @@ httptools = [
     {file = "httptools-0.1.1.tar.gz", hash = "sha256:41b573cf33f64a8f8f3400d0a7faf48e1888582b6f6e02b82b9bd4f0bf7497ce"},
 ]
 ipython = [
-    {file = "ipython-7.17.0-py3-none-any.whl", hash = "sha256:5a8f159ca8b22b9a0a1f2a28befe5ad2b703339afb58c2ffe0d7c8d7a3af5999"},
-    {file = "ipython-7.17.0.tar.gz", hash = "sha256:b70974aaa2674b05eb86a910c02ed09956a33f2dd6c71afc60f0b128a77e7f28"},
+    {file = "ipython-7.18.0-py3-none-any.whl", hash = "sha256:73c61ebcc30baadf600b870c3a38b96d6e5ae8dde5ef5425b8aab75dc9a9a602"},
+    {file = "ipython-7.18.0.tar.gz", hash = "sha256:4dbacf73ac7409c33c918044476eefe4c2428ce0ca4cc118aee718ac6026ac0f"},
 ]
 ipython-genutils = [
     {file = "ipython_genutils-0.2.0-py2.py3-none-any.whl", hash = "sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8"},
@@ -682,8 +682,8 @@ pytz = [
     {file = "pytz-2020.1.tar.gz", hash = "sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"},
 ]
 sentry-sdk = [
-    {file = "sentry-sdk-0.17.0.tar.gz", hash = "sha256:09cbc253c827a88064c5ed548d24fb4294568bfe9b1816a857fa5a423d4ce762"},
-    {file = "sentry_sdk-0.17.0-py2.py3-none-any.whl", hash = "sha256:1d654ac57be9967dae67545fb759f6e7594de07f487c21a276e6466dd52e83f1"},
+    {file = "sentry-sdk-0.17.1.tar.gz", hash = "sha256:2c770e7bf72d6419bb82b3bb950f3789fc24bd6a0ba191369607a96289acd63b"},
+    {file = "sentry_sdk-0.17.1-py2.py3-none-any.whl", hash = "sha256:ad2c514aab9ed40d3f9f3245675727f672ea3d85b3b7a5956af93f405ba7aee0"},
 ]
 six = [
     {file = "six-1.15.0-py2.py3-none-any.whl", hash = "sha256:8b74bedcbbbaca38ff6d7491d76f2b06b3592611af620f8426e82dddb04a5ced"},
